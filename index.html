@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Spotify Clone</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/dist/themes/dark.css">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "@shoelace-style/shoelace/": "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/dist/",
+      "lit/": "https://cdn.jsdelivr.net/npm/lit@2.8.0/",
+      "lit-html/": "https://cdn.jsdelivr.net/npm/lit-html@2.8.0/",
+      "@lit/": "https://cdn.jsdelivr.net/npm/@lit@2.8.0/",
+      "@lit-labs/": "https://cdn.jsdelivr.net/npm/@lit-labs/",
+      "@floating-ui/dom": "https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.5.3/dist/floating-ui.dom.mjs",
+      "composed-offset-position": "https://cdn.jsdelivr.net/npm/composed-offset-position@1.0.0/dist/index.mjs"
+    }
+  }
+  </script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/dist/shoelace.js"></script>
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar (Mobile Drawer) -->
+    <aside class="sidebar mobile-sidebar">
+      <div class="logo">
+        <img width="170px" src="Exemplify-19-04-2025.png">
+      </div>
+      <nav class="nav-menu">
+        <sl-button variant="text" size="large" class="nav-item active">
+          <sl-icon slot="prefix" name="house-fill"></sl-icon>
+          Home
+        </sl-button>
+        <sl-button variant="text" size="large" class="nav-item">
+          <sl-icon slot="prefix" name="search"></sl-icon>
+          Search
+        </sl-button>
+        <sl-button variant="text" size="large" class="nav-item">
+          <sl-icon slot="prefix" name="collection"></sl-icon>
+          Your Library
+        </sl-button>
+      </nav>
+      <div class="playlists">
+        <sl-button variant="text" size="large" class="playlist-button">
+          <sl-icon slot="prefix" name="plus-square"></sl-icon>
+          Create Playlist
+        </sl-button>
+        <sl-button variant="text" size="large" class="playlist-button">
+          <sl-icon slot="prefix" name="heart-fill" style="color: var(--sl-color-primary-600);"></sl-icon>
+          Liked Songs
+        </sl-button>
+        <div class="playlist-divider"></div>
+        <div class="playlist-list">
+          <div class="playlist-item">My Playlist #1</div>
+          <div class="playlist-item">Chill Vibes</div>
+          <div class="playlist-item">Workout Mix</div>
+          <div class="playlist-item">Party Anthems</div>
+          <div class="playlist-item">Road Trip</div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-bar">
+        <div class="mobile-menu-toggle">
+          <sl-icon-button name="list" label="Menu" class="sidebar-toggle"></sl-icon-button>
+        </div>
+        <div class="navigation-buttons">
+          <sl-button variant="default" circle size="small" class="nav-button prev-button">
+            <sl-icon name="chevron-left"></sl-icon>
+          </sl-button>
+          <sl-button variant="default" circle size="small" class="nav-button next-button">
+            <sl-icon name="chevron-right"></sl-icon>
+          </sl-button>
+        </div>
+        
+        <div class="top-bar-logo">
+          <img src="Exemplify-19-04-2025.png" alt="Exemplify Logo" class="mobile-logo">
+        </div>
+        
+        <div class="user-menu">
+          <sl-button variant="default" pill class="user-profile-btn">
+            <div class="avatar-placeholder"></div>
+            <span class="username">User</span>
+            <sl-icon name="chevron-down" slot="suffix"></sl-icon>
+          </sl-button>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="featured">
+          <h1>Good afternoon</h1>
+          <div class="featured-grid">
+            <div class="featured-item">
+              <div class="playlist-cover" style="background-color: #1DB954;">
+                <svg viewBox="0 0 24 24" width="48" height="48" fill="white">
+                  <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"></path>
+                </svg>
+              </div>
+              <span>Today's Top Hits</span>
+              <sl-button variant="primary" circle class="play-button">
+                <sl-icon name="play-fill"></sl-icon>
+              </sl-button>
+            </div>
+            <div class="featured-item">
+<div class="playlist-cover" style="background-color: #8c67ac;" w-tid="117">
+                <svg viewBox="0 0 24 24" width="48" height="48" fill="white" w-tid="119">
+                  <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z" w-tid="121"></path>
+                </svg>
+              </div>
+              <span>Chill Hits</span>
+              <sl-button variant="primary" circle class="play-button">
+                <sl-icon name="play-fill"></sl-icon>
+              </sl-button>
+            </div>
+            <div class="featured-item">
+              <div class="playlist-cover" style="background-color: #e8115b;">
+                <svg viewBox="0 0 24 24" width="48" height="48" fill="white">
+                  <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+              </div>
+              <span>Rock Classics</span>
+              <sl-button variant="primary" circle class="play-button">
+                <sl-icon name="play-fill"></sl-icon>
+              </sl-button>
+            </div>
+            <div class="featured-item">
+              <div class="playlist-cover" style="background-color: #b02897;">
+                <svg viewBox="0 0 24 24" width="48" height="48" fill="white">
+                  <path d="M12 7C6.48 7 2 9.24 2 12c0 2.24 2.94 4.13 7 4.77V20l4-4-4-4v2.73c-3.15-.56-5-1.9-5-2.73 0-1.06 3.04-3 8-3s8 1.94 8 3c0 .73-1.46 1.89-4 2.53v2.05c3.53-.77 6-2.53 6-4.58 0-2.76-4.48-5-10-5z"></path>
+                </svg>
+              </div>
+              <span>All Out 80s</span>
+              <sl-button variant="primary" circle class="play-button">
+                <sl-icon name="play-fill"></sl-icon>
+              </sl-button>
+            </div>
+            <div class="featured-item">
+              <div class="playlist-cover" style="background-color: #ba5d07;">
+                <svg viewBox="0 0 24 24" width="48" height="48" fill="white">
+                  <path d="M12 3v9.28c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"></path>
+                </svg>
+              </div>
+              <span>Hip Hop Hits</span>
+              <sl-button variant="primary" circle class="play-button">
+                <sl-icon name="play-fill"></sl-icon>
+              </sl-button>
+            </div>
+            <div class="featured-item">
+              <div class="playlist-cover" style="background-color: #1e3264;">
+                <svg viewBox="0 0 24 24" width="48" height="48" fill="white">
+                  <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+              </div>
+              <span>Mood Booster</span>
+              <sl-button variant="primary" circle class="play-button">
+                <sl-icon name="play-fill"></sl-icon>
+              </sl-button>
+            </div>
+          </div>
+        </section>
+
+        <section class="made-for-you">
+          <div class="section-header">
+            <h2>Made For You</h2>
+            <sl-button variant="text">Show all</sl-button>
+          </div>
+          <div class="recommendation-grid">
+            <div class="recommendation-card">
+              <div class="card-image">
+                <div class="playlist-cover-square" style="background: linear-gradient(45deg, #450af5, #c4efd9);">
+                  <svg viewBox="0 0 24 24" width="48" height="48" fill="white">
+                    <path d="M15 6H3v2h12V6zm0 4H3v2h12v-2zM3 16h8v-2H3v2zM17 6v8.18c-.31-.11-.65-.18-1-.18-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3V8h3V6h-5z"></path>
+                  </svg>
+                </div>
+                <sl-button variant="primary" circle class="play-button">
+                  <sl-icon name="play-fill"></sl-icon>
+                </sl-button>
+              </div>
+              <h3>Daily Mix 1</h3>
+              <p>Coldplay, Maroon 5, Imagine Dragons and more</p>
+            </div>
+            <div class="recommendation-card">
+              <div class="card-image">
+                <div class="playlist-cover-square" style="background: linear-gradient(45deg, #ff6f00, #ffbb00);">
+                  <svg viewBox="0 0 24 24" width="48" height="48" fill="white">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"></path>
+                  </svg>
+                </div>
+                <sl-button variant="primary" circle class="play-button">
+                  <sl-icon name="play-fill"></sl-icon>
+                </sl-button>
+              </div>
+              <h3>Release Radar</h3>
+              <p>Catch all the latest music from artists you follow</p>
+            </div>
+            <div class="recommendation-card">
+              <div class="card-image">
+                <div class="playlist-cover-square" style="background: linear-gradient(45deg, #3d91f4, #00bcd4);">
+                  <svg viewBox="0 0 24 24" width="48" height="48">
+                    <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zm-1.5-2.5l5.5-4-5.5-4v8z" fill="white"/>
+                  </svg>
+                </div>
+                <sl-button variant="primary" circle class="play-button">
+                  <sl-icon name="play-fill"></sl-icon>
+                </sl-button>
+              </div>
+              <h3>Discover Weekly</h3>
+              <p>Your weekly mixtape of fresh music</p>
+            </div>
+            <div class="recommendation-card">
+              <div class="card-image">
+                <div class="playlist-cover-square" style="background: linear-gradient(45deg, #e94560, #8a3ab9);">
+                  <svg viewBox="0 0 24 24" width="48" height="48" fill="white">
+                    <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path>
+                  </svg>
+                </div>
+                <sl-button variant="primary" circle class="play-button">
+                  <sl-icon name="play-fill"></sl-icon>
+                </sl-button>
+              </div>
+              <h3>Time Capsule</h3>
+              <p>Songs to take you back to your childhood</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Player -->
+    <footer class="player">
+      <div class="now-playing">
+        <div class="album-cover-wrap">
+          <div class="album-cover-art"></div>
+        </div>
+        <div class="track-info">
+          <div class="track-name">Shape of You</div>
+          <div class="artist-name">Ed Sheeran</div>
+        </div>
+        <button class="like-button">
+          <svg viewBox="0 0 16 16" width="16" height="16">
+            <path d="M8 3.2C7.4 2.514 6.571 2.138 5.714 2.138c-1.57 0-2.857 1.281-2.857 2.86 0 3.462 5.143 6.857 5.143 6.857s5.143-3.395 5.143-6.858c0-1.578-1.286-2.859-2.857-2.859-0.857 0-1.686.376-2.286 1.063z"/>
+          </svg>
+        </button>
+        <button class="pip-button">
+          <svg viewBox="0 0 16 16" width="16" height="16">
+            <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L12 4.793l1.146-1.147a.5.5 0 1 1 .708 0zm-3 3a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L9 7.793l1.146-1.147a.5.5 0 1 1 .708 0z"/>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="playback-controls">
+        <div class="control-buttons">
+          <button class="shuffle-button">
+            <svg viewBox="0 0 16 16" width="16" height="16">
+              <path d="M13.151.922a.75.75 0 1 0-1.06 1.06L13.109 3H11.16a3.75 3.75 0 0 0-2.873 1.34l-6.173 7.356A2.25 2.25 0 0 1 .39 12.5H0V14h.391a3.75 3.75 0 0 0 2.873-1.34l6.173-7.356a2.25 2.25 0 0 1 1.724-.804h1.947l-1.017 1.018a.75.75 0 0 0 1.06 1.06L16 3.724l-2.849-2.802zm.535 9.96a.75.75 0 1 0-1.06-1.06l-1.017 1.017h-1.947a2.25 2.25 0 0 1-1.724-.804L1.765 2.68A3.75 3.75 0 0 0 .391 1.34H0v1.5h.391a2.25 2.25 0 0 1 1.724.804l6.173 7.356a3.75 3.75 0 0 0 2.873 1.34h1.947l-1.017 1.018a.75.75 0 0 0 1.06 1.06L16 10.576l-2.314-2.312z"/>
+            </svg>
+          </button>
+          <button class="previous-button">
+            <svg viewBox="0 0 16 16" width="16" height="16">
+              <path d="M3.3 1a.7.7 0 0 1 .7.7v5.15l9.95-5.744a.7.7 0 0 1 1.05.606v12.575a.7.7 0 0 1-1.05.607L4 9.149V14.3a.7.7 0 0 1-.7.7H1.7a.7.7 0 0 1-.7-.7V1.7a.7.7 0 0 1 .7-.7h1.6z"/>
+            </svg>
+          </button>
+          <button class="play-pause-button">
+            <svg viewBox="0 0 16 16" width="16" height="16" class="play-icon">
+              <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"/>
+            </svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" class="pause-icon visible">
+              <path d="M2.7 1a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7H2.7zm8 0a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-2.6z"/>
+            </svg>
+          </button>
+          <button class="next-button">
+            <svg viewBox="0 0 16 16" width="16" height="16">
+              <path d="M12.7 1a.7.7 0 0 0-.7.7v5.15L2.05 1.107A.7.7 0 0 0 1 1.712v12.575a.7.7 0 0 0 1.05.607L12 9.149V14.3a.7.7 0 0 0 .7.7h1.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-1.6z"/>
+            </svg>
+          </button>
+          <button class="repeat-button">
+            <svg viewBox="0 0 16 16" width="16" height="16">
+              <path d="M0 4.75A3.75 3.75 0 0 1 3.75 1h8.5A3.75 3.75 0 0 1 16 4.75v5a3.75 3.75 0 0 1-3.75 3.75H9.81l1.018 1.018a.75.75 0 1 1-1.06 1.06L6.939 12.75l2.829-2.828a.75.75 0 1 1 1.06 1.06L9.811 12h2.439a2.25 2.25 0 0 0 2.25-2.25v-5a2.25 2.25 0 0 0-2.25-2.25h-8.5A2.25 2.25 0 0 0 1.5 4.75v5A2.25 2.25 0 0 0 3.75 12H5v1.5H3.75A3.75 3.75 0 0 1 0 9.75v-5z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="playback-bar">
+          <span class="time-elapsed">1:23</span>
+          <div class="progress-container">
+            <div class="progress-bg"></div>
+            <div class="progress-bar" style="width: 33%"></div>
+            <div class="progress-thumb"></div>
+          </div>
+          <span class="time-remaining">-2:22</span>
+        </div>
+      </div>
+      
+      <div class="volume-controls">
+        <button class="queue-button">
+          <svg viewBox="0 0 16 16" width="16" height="16">
+            <path d="M15 15H1v-1.5h14V15zm0-4.5H1V9h14v1.5zm-14-7A2.5 2.5 0 0 1 3.5 1h9a2.5 2.5 0 0 1 0 5h-9A2.5 2.5 0 0 1 1 3.5zm2.5-1a1 1 0 0 0 0 2h9a1 1 0 1 0 0-2h-9z"/>
+          </svg>
+        </button>
+        <button class="connect-button">
+          <svg viewBox="0 0 16 16" width="16" height="16">
+            <path d="M6 2.75C6 1.784 6.784 1 7.75 1h6.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15h-6.5A1.75 1.75 0 0 1 6 13.25V2.75zm1.75-.25a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h6.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25h-6.5zm-6 0a.25.25 0 0 0-.25.25v6.5c0 .138.112.25.25.25H4V11H1.75A1.75 1.75 0 0 1 0 9.25v-6.5C0 1.784.784 1 1.75 1H4v1.5H1.75zM4 15H2v-1.5h2V15z"/>
+            <path d="M13 10a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm-1-5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+          </svg>
+        </button>
+        <div class="volume-control-wrap">
+          <button class="volume-button">
+            <svg viewBox="0 0 16 16" width="16" height="16" class="volume-high">
+              <path d="M9.741.85a.75.75 0 0 1 .375.65v13a.75.75 0 0 1-1.125.65l-6.925-4a3.642 3.642 0 0 1-1.33-4.967 3.639 3.639 0 0 1 1.33-1.332l6.925-4a.75.75 0 0 1 .75 0zm-6.924 5.3a2.139 2.139 0 0 0 0 3.7l5.8 3.35V2.8l-5.8 3.35zm8.683 4.29V5.56a2.75 2.75 0 0 1 0 4.88z"/>
+              <path d="M11.5 13.614a5.752 5.752 0 0 0 0-11.228v1.55a4.252 4.252 0 0 1 0 8.127v1.55z"/>
+            </svg>
+          </button>
+          <div class="volume-slider-container">
+            <div class="volume-slider-bg"></div>
+            <div class="volume-slider-bar" style="width: 65%"></div>
+            <div class="volume-slider-thumb"></div>
+          </div>
+        </div>
+        <button class="fullscreen-button">
+          <svg viewBox="0 0 16 16" width="16" height="16">
+            <path d="M6.53 9.47a.75.75 0 0 1 0 1.06l-2.72 2.72h1.018a.75.75 0 0 1 0 1.5H1.25v-3.579a.75.75 0 0 1 1.5 0v1.018l2.72-2.72a.75.75 0 0 1 1.06 0zm2.94-2.94a.75.75 0 0 1 0-1.06l2.72-2.72h-1.018a.75.75 0 1 1 0-1.5h3.578v3.579a.75.75 0 0 1-1.5 0V3.81l-2.72 2.72a.75.75 0 0 1-1.06 0z"/>
+          </svg>
+        </button>
+      </div>
+    </footer>
+  </div>
+  
+  <!-- Song Queue Drawer -->
+  <div class="queue-drawer">
+    <div class="queue-header">
+      <h3>Queue</h3>
+      <sl-icon-button name="x" label="Close" class="close-queue"></sl-icon-button>
+    </div>
+    <div class="queue-content">
+      <div class="now-playing-section">
+        <h4>Now playing</h4>
+        <div class="queue-track active">
+          <div class="track-image-placeholder"></div>
+          <div class="queue-track-info">
+            <div class="track-title">Shape of You</div>
+            <div class="track-artist">Ed Sheeran</div>
+          </div>
+          <div class="track-duration">3:54</div>
+        </div>
+      </div>
+      <div class="next-up-section">
+        <h4>Next up</h4>
+        <div class="queue-track">
+          <div class="track-image-placeholder" style="background-color: #ff4500;"></div>
+          <div class="queue-track-info">
+            <div class="track-title">Blinding Lights</div>
+            <div class="track-artist">The Weeknd</div>
+          </div>
+          <div class="track-duration">3:20</div>
+        </div>
+        <div class="queue-track">
+          <div class="track-image-placeholder" style="background-color: #90ee90;"></div>
+          <div class="queue-track-info">
+            <div class="track-title">Bad Guy</div>
+            <div class="track-artist">Billie Eilish</div>
+          </div>
+          <div class="track-duration">3:14</div>
+        </div>
+        <div class="queue-track">
+          <div class="track-image-placeholder" style="background-color: #1e90ff;"></div>
+          <div class="queue-track-info">
+            <div class="track-title">Watermelon Sugar</div>
+            <div class="track-artist">Harry Styles</div>
+          </div>
+          <div class="track-duration">2:54</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Connect to Device Modal -->
+  <sl-dialog label="Connect to a device" class="device-dialog">
+    <div class="devices-list">
+      <div class="device-item active">
+        <sl-icon name="laptop" class="device-icon"></sl-icon>
+        <div class="device-name">This Web Browser</div>
+        <sl-icon name="volume-up-fill" class="active-icon"></sl-icon>
+      </div>
+      <div class="device-item">
+        <sl-icon name="phone" class="device-icon"></sl-icon>
+        <div class="device-name">iPhone 13</div>
+      </div>
+      <div class="device-item">
+        <sl-icon name="speaker" class="device-icon"></sl-icon>
+        <div class="device-name">Living Room Speaker</div>
+      </div>
+      <div class="device-item">
+        <sl-icon name="tv" class="device-icon"></sl-icon>
+        <div class="device-name">Samsung TV</div>
+      </div>
+    </div>
+  </sl-dialog>
+
+  <!-- Mobile Sidebar Overlay -->
+  <div class="mobile-sidebar-overlay"></div>
+</body>
+</html>
